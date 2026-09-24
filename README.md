@@ -4,6 +4,13 @@ This folder is a self-contained, static version of the housing-duration
 interactive. It has no external JavaScript or CSS dependencies and does not
 require a backend.
 
+## Live version
+
+<https://maharajamilan.github.io/housing-duration-interactive/>
+
+Served from the `main` branch by GitHub Pages. Pushing to `main` republishes
+the site within about a minute.
+
 ## Review locally
 
 Open `index.html` in a current browser. The prediction data are bundled in
@@ -35,6 +42,7 @@ newsroom content platforms and static hosts.
 - `styles.css`: responsive layout and visual styling
 - `app.js`: controls, rankings, filtering, and time-series charts
 - `data/current_predictions.js`: all public scenario and time-series results
+- `exports/`: flattened city-level CSVs for table tools such as Datawrapper
 
 ## Editorial and statistical notes
 
