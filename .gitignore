@@ -1,0 +1,6 @@
+.DS_Store
+.Rhistory
+.Rproj.user/
+
+# 14 MB full cross-product export; regenerate from data/ if needed
+exports/3_full.csv

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Compare predicted permitting and total project durations across U.S. cities."
+    />
+    <title>Where does housing get built fastest?</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230b1f33'/%3E%3Cpath d='M12 47h40M17 43V25l15-11 15 11v18M25 43V31h14v12' fill='none' stroke='%23f0b84b' stroke-width='5' stroke-linejoin='round'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="styles.css?v=14" />
+  </head>
+  <body>
+    <main>
+      <section class="workspace" aria-label="Project settings and city rankings">
+        <aside class="controls" aria-labelledby="settings-title">
+          <div class="controls-heading">
+            <h2 id="settings-title">Project settings</h2>
+          </div>
+
+          <div id="scenario-controls" class="scenario-controls"></div>
+
+        </aside>
+
+        <section class="results" aria-labelledby="ranking-title">
+          <div class="results-header">
+            <h2 id="ranking-title">City rankings</h2>
+            <div class="view-toggle" role="group" aria-label="Comparison view">
+              <button type="button" data-view="cities" aria-pressed="true">Across cities</button>
+              <button type="button" data-view="time" aria-pressed="false">Over time</button>
+            </div>
+          </div>
+
+          <section id="cities-view">
+            <div class="result-tools">
+              <div class="duration-legend" aria-label="Chart legend">
+                <span><i class="legend-swatch legend-swatch--total"></i>Total duration</span>
+                <span><i class="legend-swatch legend-swatch--permit"></i>Permitting duration</span>
+              </div>
+              <label class="uncertainty-toggle">
+                <input id="show-ci" type="checkbox" checked />
+                <span>Show 95% confidence intervals</span>
+              </label>
+              <label class="search-field">
+                <span class="sr-only">Find a city</span>
+                <input id="city-search" type="search" placeholder="Find a city" autocomplete="off" />
+              </label>
+            </div>
+
+            <div id="chart-status" class="sr-only" aria-live="polite"></div>
+            <div class="axis-wrap" aria-hidden="true">
+              <p class="axis-title">Predicted duration from application (years)</p>
+              <div id="duration-axis" class="axis"></div>
+            </div>
+            <ol id="ranking-chart" class="ranking-chart" aria-label="City ranking"></ol>
+
+          </section>
+
+          <section id="time-series-section" class="time-series-section" hidden>
+            <div id="time-series-chart" class="time-series-chart"></div>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <template id="select-template">
+      <label class="setting">
+        <span class="setting__label"></span>
+        <select></select>
+      </label>
+    </template>
+
+    <script src="data/current_predictions.js"></script>
+    <script src="app.js?v=15" defer></script>
+  </body>
+</html>
